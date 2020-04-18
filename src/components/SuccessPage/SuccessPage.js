@@ -1,9 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 class SuccessPage extends Component {
+  newFeedbackClicked = (event) => {
+    // go to the beginning of the page to start again
+    this.props.history.push("/");
+    // reset feedback reducers
+    this.props.dispatch({ type: "RESET_FEEDBACK" });
+  };
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <div>
+          <h3>Thank You for Submitting Your Feedback!</h3>
+          <br />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.newFeedbackClicked}
+          >
+            Leave New Feedback
+          </Button>
+        </div>
+      </div>
+    );
   }
 }
 
