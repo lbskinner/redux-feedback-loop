@@ -31,6 +31,13 @@ class SupportPage extends Component {
   render() {
     return (
       <div>
+        <header className="App-header">
+          <h1 className="App-title">Feedback!</h1>
+          <h4>
+            <i>Don't forget it!</i>
+          </h4>
+        </header>
+        <br />
         <h2>How well are you being supported?</h2>
         <Grid container justify="space-around">
           <Grid item xs={3}></Grid>

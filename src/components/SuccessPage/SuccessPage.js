@@ -12,6 +12,10 @@ class SuccessPage extends Component {
   render() {
     return (
       <div>
+        <header className="App-header">
+          <h1 className="App-title">Feedback!</h1>
+        </header>
+        <br />
         <div>
           <h3>Thank You for Submitting Your Feedback!</h3>
           <br />
