@@ -17,7 +17,7 @@ class FeelingPage extends Component {
 
   handleClick = (event) => {
     this.props.dispatch({
-      type: "SET-FEELING",
+      type: "SET_FEELING",
       payload: this.state,
     });
     this.props.history.push("/understanding");

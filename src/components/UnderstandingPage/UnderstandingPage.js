@@ -9,7 +9,7 @@ class UnderstandingPage extends Component {
     understanding: "",
   };
 
-  handleClick = (event) => {
+  handleChange = (event) => {
     this.setState({
       understanding: event.target.value,
     });
