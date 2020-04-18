@@ -16,11 +16,15 @@ class FeelingPage extends Component {
   };
 
   handleClick = (event) => {
-    this.props.dispatch({
-      type: "SET_FEELING",
-      payload: this.state,
-    });
-    this.props.history.push("/understanding");
+    if (!this.state.feeling) {
+      alert("Please enter a number between 1 to 5!");
+    } else {
+      this.props.dispatch({
+        type: "SET_FEELING",
+        payload: this.state,
+      });
+      this.props.history.push("/understanding");
+    }
   };
 
   render() {
@@ -36,6 +40,7 @@ class FeelingPage extends Component {
               min="1"
               max="5"
               placeholder="Enter number 1 to 5"
+              value={this.state.feeling}
               onChange={this.handleChange}
             />
           </Grid>

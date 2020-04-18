@@ -16,10 +16,15 @@ class UnderstandingPage extends Component {
   };
 
   handleClick = (event) => {
-    this.props.dispatch({
-      type: "SET_UNDERSTANDING",
-      payload: this.state,
-    });
+    if (!this.state.understanding) {
+      alert("Please enter a number between 1 to 5!");
+    } else {
+      this.props.dispatch({
+        type: "SET_UNDERSTANDING",
+        payload: this.state,
+      });
+      this.props.history.push("/support");
+    }
   };
 
   render() {
@@ -35,6 +40,7 @@ class UnderstandingPage extends Component {
               min="1"
               max="5"
               placeholder="Enter number 1 to 5"
+              value={this.state.understanding}
               onChange={this.handleChange}
             />
           </Grid>
