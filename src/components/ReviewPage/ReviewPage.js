@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import Grid from "@material-ui/core/Grid";
 
 class ReviewPage extends Component {
   submitFeedback = (event) => {
@@ -26,28 +27,65 @@ class ReviewPage extends Component {
     this.props.history.push("/");
   };
 
+  updateUnderstanding = (event) => {
+    this.props.history.push("/understanding");
+  };
+
+  updateSupport = (event) => {
+    this.props.history.push("/support");
+  };
+
+  updateComments = (event) => {
+    this.props.history.push("/comments");
+  };
+
   render() {
     return (
       <div>
         <h2>Review Your Feedback</h2>
-        <p>
-          Feelings: {this.props.store.feelingReducer.feeling}{" "}
-          <Button variant="contained" onClick={this.updateFeeling}>
-            Update
-          </Button>
-        </p>
-        <p>
-          Understanding: {this.props.store.understandingReducer.understanding}
-          <Button variant="contained">Update</Button>
-        </p>
-        <p>
-          Support: {this.props.store.supportReducer.support}{" "}
-          <Button variant="contained">Update</Button>
-        </p>
-        <p>
-          Comments: {this.props.store.commentsReducer.comments}{" "}
-          <Button variant="contained">Update</Button>
-        </p>
+        <Grid container justify="center">
+          <Grid item xs={2}>
+            <p>Feelings: {this.props.store.feelingReducer.feeling}</p>
+          </Grid>
+          <Grid item xs={1}>
+            <Button variant="contained" onClick={this.updateFeeling}>
+              Update
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container justify="center">
+          <Grid item xs={2}>
+            <p>
+              Understanding:{" "}
+              {this.props.store.understandingReducer.understanding}
+            </p>
+          </Grid>
+          <Grid item xs={1}>
+            <Button variant="contained" onClick={this.updateUnderstanding}>
+              Update
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container justify="center">
+          <Grid item xs={2}>
+            <p>Support: {this.props.store.supportReducer.support}</p>
+          </Grid>
+          <Grid item xs={1}>
+            <Button variant="contained" onClick={this.updateSupport}>
+              Update
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container justify="center">
+          <Grid item xs={2}>
+            <p>Comments: {this.props.store.commentsReducer.comments}</p>
+          </Grid>
+          <Grid item xs={1}>
+            <Button variant="contained" onClick={this.updateComments}>
+              Update
+            </Button>
+          </Grid>
+        </Grid>
         <Button variant="contained" onClick={this.submitFeedback}>
           SUBMIT
         </Button>
