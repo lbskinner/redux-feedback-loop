@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 
 class CommentsPage extends Component {
   state = {
-    comments: "",
+    comments: this.props.store.commentsReducer.comments,
   };
 
   handleChange = (event) => {
@@ -34,7 +34,7 @@ class CommentsPage extends Component {
               label="Comments?"
               type="text"
               placeholder="Enter comments"
-              value={this.state.comments}
+              defaultValue={this.state.comments}
               onChange={this.handleChange}
             />
           </Grid>
@@ -49,4 +49,6 @@ class CommentsPage extends Component {
   }
 }
 
-export default connect()(CommentsPage);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(CommentsPage);

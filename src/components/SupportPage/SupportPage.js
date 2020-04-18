@@ -6,11 +6,12 @@ import Grid from "@material-ui/core/Grid";
 
 class SupportPage extends Component {
   state = {
-    support: "",
+    support: this.props.store.supportReducer.support,
   };
 
   handleChange = (event) => {
     this.setState({
+      ...this.state,
       support: event.target.value,
     });
   };
@@ -40,7 +41,7 @@ class SupportPage extends Component {
               min="1"
               max="5"
               placeholder="Enter number 1 to 5"
-              value={this.state.support}
+              defaultValue={this.state.support}
               onChange={this.handleChange}
             />
           </Grid>
@@ -55,4 +56,6 @@ class SupportPage extends Component {
   }
 }
 
-export default connect()(SupportPage);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(SupportPage);

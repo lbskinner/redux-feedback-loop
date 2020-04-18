@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 
 class UnderstandingPage extends Component {
   state = {
-    understanding: "",
+    understanding: this.props.store.understandingReducer.understanding,
   };
 
   handleChange = (event) => {
@@ -40,7 +40,7 @@ class UnderstandingPage extends Component {
               min="1"
               max="5"
               placeholder="Enter number 1 to 5"
-              value={this.state.understanding}
+              defaultValue={this.state.understanding}
               onChange={this.handleChange}
             />
           </Grid>
@@ -55,4 +55,6 @@ class UnderstandingPage extends Component {
   }
 }
 
-export default connect()(UnderstandingPage);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(UnderstandingPage);

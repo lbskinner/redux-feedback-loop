@@ -22,16 +22,32 @@ class ReviewPage extends Component {
       });
   };
 
+  updateFeeling = (event) => {
+    this.props.history.push("/");
+  };
+
   render() {
     return (
       <div>
         <h2>Review Your Feedback</h2>
-        <p>Feelings: {this.props.store.feelingReducer.feeling}</p>
+        <p>
+          Feelings: {this.props.store.feelingReducer.feeling}{" "}
+          <Button variant="contained" onClick={this.updateFeeling}>
+            Update
+          </Button>
+        </p>
         <p>
           Understanding: {this.props.store.understandingReducer.understanding}
+          <Button variant="contained">Update</Button>
         </p>
-        <p>Support: {this.props.store.supportReducer.support}</p>
-        <p>Comments: {this.props.store.commentsReducer.comments}</p>
+        <p>
+          Support: {this.props.store.supportReducer.support}{" "}
+          <Button variant="contained">Update</Button>
+        </p>
+        <p>
+          Comments: {this.props.store.commentsReducer.comments}{" "}
+          <Button variant="contained">Update</Button>
+        </p>
         <Button variant="contained" onClick={this.submitFeedback}>
           SUBMIT
         </Button>

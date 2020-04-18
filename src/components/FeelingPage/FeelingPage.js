@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 
 class FeelingPage extends Component {
   state = {
-    feeling: "",
+    feeling: this.props.store.feelingReducer.feeling,
   };
 
   handleChange = (event) => {
@@ -40,7 +40,7 @@ class FeelingPage extends Component {
               min="1"
               max="5"
               placeholder="Enter number 1 to 5"
-              value={this.state.feeling}
+              defaultValue={this.state.feeling}
               onChange={this.handleChange}
             />
           </Grid>
@@ -55,4 +55,6 @@ class FeelingPage extends Component {
   }
 }
 
-export default connect()(FeelingPage);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(FeelingPage);
