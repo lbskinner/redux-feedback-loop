@@ -2,6 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import AdminListItem from "../AdminListItem/AdminListItem";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import { withStyles } from "@material-ui/core/styles";
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: "#00b8d4",
+    color: theme.palette.common.black,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
 
 class AdminPage extends Component {
   componentDidMount() {
@@ -36,25 +53,28 @@ class AdminPage extends Component {
         );
       }
     );
+
     return (
       <div>
         <header className="App-header">
           <h1 className="App-title">Feedback Results!</h1>
         </header>
         <br />
-        <table>
-          <thead>
-            <tr>
-              <th>Feeling</th>
-              <th>Comprehension</th>
-              <th>Support</th>
-              <th>Comments</th>
-              <th>Delete</th>
-              <th>Flag</th>
-            </tr>
-          </thead>
-          <tbody>{feedbackArray}</tbody>
-        </table>
+        <TableContainer>
+          <Table aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell align="center">Feeling</StyledTableCell>
+                <StyledTableCell align="center">Comprehension</StyledTableCell>
+                <StyledTableCell align="center">Support</StyledTableCell>
+                <StyledTableCell align="center">Comments</StyledTableCell>
+                <StyledTableCell align="center">Delete</StyledTableCell>
+                <StyledTableCell align="center">Flag</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>{feedbackArray}</TableBody>
+          </Table>
+        </TableContainer>
       </div>
     );
   }
