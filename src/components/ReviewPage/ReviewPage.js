@@ -51,43 +51,43 @@ class ReviewPage extends Component {
         <br />
         <h2>Review Your Feedback</h2>
         <Grid container justify="center">
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <p>Feelings: {this.props.store.feelingReducer.feeling}</p>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Button variant="contained" onClick={this.updateFeeling}>
               Update
             </Button>
           </Grid>
         </Grid>
         <Grid container justify="center">
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <p>
               Understanding:{" "}
               {this.props.store.understandingReducer.understanding}
             </p>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Button variant="contained" onClick={this.updateUnderstanding}>
               Update
             </Button>
           </Grid>
         </Grid>
         <Grid container justify="center">
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <p>Support: {this.props.store.supportReducer.support}</p>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Button variant="contained" onClick={this.updateSupport}>
               Update
             </Button>
           </Grid>
         </Grid>
         <Grid container justify="center">
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <p>Comments: {this.props.store.commentsReducer.comments}</p>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Button variant="contained" onClick={this.updateComments}>
               Update
             </Button>

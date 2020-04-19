@@ -37,6 +37,13 @@ const supportReducer = (state = {}, action) => {
   return state;
 };
 
+const feedbackReducer = (state = [], action) => {
+  if (action.type === "SET_FEEDBACK") {
+    return [...action.payload];
+  }
+  return state;
+};
+
 const commentsReducer = (state = {}, action) => {
   if (action.type === "SET_COMMENTS") {
     return { ...action.payload };
@@ -53,6 +60,7 @@ const storeInstance = createStore(
     understandingReducer,
     supportReducer,
     commentsReducer,
+    feedbackReducer,
   }),
   applyMiddleware(logger)
 );

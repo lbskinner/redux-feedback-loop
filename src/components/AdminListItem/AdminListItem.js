@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import axios from "axios";
 
 class AdminListItem extends Component {
@@ -32,4 +32,4 @@ class AdminListItem extends Component {
   }
 }
 
-export default connect()(AdminListItem);
+export default AdminListItem;

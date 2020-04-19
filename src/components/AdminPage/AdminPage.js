@@ -4,9 +4,6 @@ import axios from "axios";
 import AdminListItem from "../AdminListItem/AdminListItem";
 
 class AdminPage extends Component {
-  state = {
-    feedback: [],
-  };
   componentDidMount() {
     console.log("Component App Did Mount");
     this.getFeedback();
@@ -16,14 +13,11 @@ class AdminPage extends Component {
     axios
       .get("/feedback")
       .then((response) => {
-        this.setState(
-          {
-            feedback: [...response.data],
-          },
-          () => {
-            console.log(this.state.feedback);
-          }
-        );
+        console.log(response.data);
+        this.props.dispatch({
+          type: "SET_FEEDBACK",
+          payload: [...response.data],
+        });
       })
       .catch((error) => {
         console.log("GET SERVER ERROR: ", error);
@@ -31,11 +25,17 @@ class AdminPage extends Component {
   }
 
   render() {
-    const feedbackArray = this.state.feedback.map((item, index) => {
-      return (
-        <AdminListItem item={item} key={index} getFeedback={this.getFeedback} />
-      );
-    });
+    const feedbackArray = this.props.store.feedbackReducer.map(
+      (item, index) => {
+        return (
+          <AdminListItem
+            item={item}
+            key={index}
+            getFeedback={this.getFeedback}
+          />
+        );
+      }
+    );
     return (
       <div>
         <header className="App-header">
@@ -60,4 +60,6 @@ class AdminPage extends Component {
   }
 }
 
-export default connect()(AdminPage);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(AdminPage);
