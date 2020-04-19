@@ -9,7 +9,7 @@ class AdminPage extends Component {
     this.getFeedback();
   }
 
-  getFeedback() {
+  getFeedback = () => {
     axios
       .get("/feedback")
       .then((response) => {
@@ -22,7 +22,7 @@ class AdminPage extends Component {
       .catch((error) => {
         console.log("GET SERVER ERROR: ", error);
       });
-  }
+  };
 
   render() {
     const feedbackArray = this.props.store.feedbackReducer.map(
