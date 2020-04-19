@@ -26,15 +26,20 @@ const StyledTableRow = withStyles((theme) => ({
 
 class AdminListItem extends Component {
   handleDelete = (id) => (event) => {
-    axios
-      .delete(`/feedback/${id}`)
-      .then((response) => {
-        console.log(response.data);
-        this.props.getFeedback();
-      })
-      .catch((error) => {
-        console.log("DELETE SERVER ERROR: ", error);
-      });
+    const deleteFeedback = window.confirm("Press OK to Confirm Deletion");
+    if (!deleteFeedback) {
+      return;
+    } else {
+      axios
+        .delete(`/feedback/${id}`)
+        .then((response) => {
+          console.log(response.data);
+          this.props.getFeedback();
+        })
+        .catch((error) => {
+          console.log("DELETE SERVER ERROR: ", error);
+        });
+    }
   };
 
   clickFlag = (id, flaggedStatus) => (event) => {
