@@ -12,19 +12,19 @@ There is also an admin view for this application. An admin can visit the route `
 
 ## Screen Shot
 
-- How are you feeling today?
+- How are you feeling today?  
   ![feeling](screenshots/feelingview.png)
-- How well are you understanding the content?
+- How well are you understanding the content?  
   ![understanding](screenshots/understandingview.png)
-- How well are you being supported?
+- How well are you being supported?  
   ![support](screenshots/supportview.png)
-- Any comments you want to leave?
+- Any comments you want to leave?  
   ![comments](screenshots/commentsview.png)
-- Review your feedback
+- Review your feedback  
   ![comments](screenshots/reviewview.png)
-- Thank you for submitting your feedback!
+- Thank you for submitting your feedback!  
   ![comments](screenshots/successview.png)
-- Admin View
+- Admin view  
   ![comments](screenshots/adminview.png)
 
 ### Prerequisites
