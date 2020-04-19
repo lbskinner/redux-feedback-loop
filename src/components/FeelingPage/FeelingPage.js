@@ -5,16 +5,18 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 class FeelingPage extends Component {
+  // set the current state to the current reducer value so when user wants to update their feedback
+  // the values previously enter is displayed in the input field
   state = {
     feeling: this.props.store.feelingReducer.feeling,
   };
-
+  // set current input value to state
   handleChange = (event) => {
     this.setState({
       feeling: event.target.value,
     });
   };
-
+  // dispatch input value to reducer
   handleClick = (event) => {
     if (!this.state.feeling) {
       alert("Please enter a number between 1 to 5!");

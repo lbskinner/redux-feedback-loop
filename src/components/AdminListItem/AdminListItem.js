@@ -25,6 +25,7 @@ const StyledTableRow = withStyles((theme) => ({
 }))(TableRow);
 
 class AdminListItem extends Component {
+  // require confirmation prior to delete existing feedback from database
   handleDelete = (id) => (event) => {
     const deleteFeedback = window.confirm("Press OK to Confirm Deletion");
     if (!deleteFeedback) {
@@ -41,7 +42,7 @@ class AdminListItem extends Component {
         });
     }
   };
-
+  // update flagged status when flag icon is clicked
   clickFlag = (id, flaggedStatus) => (event) => {
     console.log(id, flaggedStatus);
     const flaggedData = {
@@ -61,6 +62,8 @@ class AdminListItem extends Component {
   };
 
   render() {
+    // when flag status is false (the default), the color of the flag icon is black
+    // when flag status is true, the color of the flag icon is changed to red
     let flaggedIconColor = "inherit";
     if (this.props.item.flagged) {
       flaggedIconColor = "secondary";

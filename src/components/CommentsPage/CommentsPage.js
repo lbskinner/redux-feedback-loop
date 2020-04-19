@@ -5,16 +5,18 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 class CommentsPage extends Component {
+  // set the current state to the current reducer value so when user wants to update their feedback
+  // the values previously enter is displayed in the input field
   state = {
     comments: this.props.store.commentsReducer.comments,
   };
-
+  // set current input value to state
   handleChange = (event) => {
     this.setState({
       comments: event.target.value,
     });
   };
-
+  // dispatch input value to reducer
   handleClick = (event) => {
     this.props.dispatch({
       type: "SET_COMMENTS",

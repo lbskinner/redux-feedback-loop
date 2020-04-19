@@ -25,7 +25,7 @@ class AdminPage extends Component {
     console.log("Component App Did Mount");
     this.getFeedback();
   }
-
+  // get all feedback data from server from database and store in feedback reducer
   getFeedback = () => {
     axios
       .get("/feedback")
@@ -42,6 +42,7 @@ class AdminPage extends Component {
   };
 
   render() {
+    // map/loop through the feedback reducer and display on page
     const feedbackArray = this.props.store.feedbackReducer.map(
       (item, index) => {
         return (

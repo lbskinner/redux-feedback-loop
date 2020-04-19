@@ -5,17 +5,19 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 class SupportPage extends Component {
+  // set the current state to the current reducer value so when user wants to update their feedback
+  // the values previously enter is displayed in the input field
   state = {
     support: this.props.store.supportReducer.support,
   };
-
+  // set current input value to state
   handleChange = (event) => {
     this.setState({
       ...this.state,
       support: event.target.value,
     });
   };
-
+  // dispatch input value to reducer
   handleClick = (event) => {
     if (!this.state.support) {
       alert("Please enter a number between 1 to 5!");

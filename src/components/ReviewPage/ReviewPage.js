@@ -5,6 +5,7 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
 class ReviewPage extends Component {
+  // store all input values from reducers to an object to be sent to server
   submitFeedback = (event) => {
     const feedback = {
       feeling: this.props.store.feelingReducer.feeling,
@@ -12,6 +13,7 @@ class ReviewPage extends Component {
       support: this.props.store.supportReducer.support,
       comments: this.props.store.commentsReducer.comments,
     };
+    // set feedback data to server
     axios
       .post("/feedback", feedback)
       .then((response) => {
@@ -22,19 +24,19 @@ class ReviewPage extends Component {
         console.log("POST SERVER ERROR: ", error);
       });
   };
-
+  // takes the user to feeling page to update input
   updateFeeling = (event) => {
     this.props.history.push("/");
   };
-
+  // takes the user to understanding page to update input
   updateUnderstanding = (event) => {
     this.props.history.push("/understanding");
   };
-
+  // takes the user to support page to update input
   updateSupport = (event) => {
     this.props.history.push("/support");
   };
-
+  // takes the user to comments page to update input
   updateComments = (event) => {
     this.props.history.push("/comments");
   };
